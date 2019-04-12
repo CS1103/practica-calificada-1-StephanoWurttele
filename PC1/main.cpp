@@ -11,35 +11,34 @@ using namespace std;
 int main() {
 
     UTEC::TwoLinkedList tll;
-
     // Agregando valores a lista # 1
-    tll.push_back1(1);
-    tll.push_back1(2);
-    tll.push_back1(3);
-    tll.push_back1(4);
-    tll.push_back1(5);
+    tll.push_back_1(1);
+    tll.push_back_1(2);
+    tll.push_back_1(3);
+    tll.push_back_1(4);
+    tll.push_back_1(5);
 
     // Agregando valores a lista # 2
-    tll.push_back2(0);
-    tll.push_back2(10);
-    tll.push_back2(20);
-    tll.push_back2(30);
-    tll.push_back2(40);
-    tll.push_back2(50);
+    tll.push_back_2(0);
+    tll.push_back_2(10);
+    tll.push_back_2(20);
+    tll.push_back_2(30);
+    tll.push_back_2(40);
+    tll.push_back_2(50);
 
     // Unir Listas y agregar valores a ambas listas
     assert(tll.getlist(1) == string("1 2 3 4 5 "));
     assert(tll.getlist(2) == string("0 10 20 30 40 50 "));
     assert(tll.getlist(0) == string());
 
-    auto resul1t1 = tll.merge(66);
+    auto result1 = tll.merge(66);
     assert(result1 == string("Operación Exitosa"));
 
 
     // Valores unidos
-    tll.pushback1(77);
-    tll.pushback2(88);
-    tll.pushback1(99);
+    tll.push_back_1(77);
+    tll.push_back_2(88);
+    tll.push_back_1(99);
     auto result2 = tll.merge(100);
     assert(result2 == string("Operación duplicada"));
     assert(tll.getlist(0) == string("66 77 88 99 "));
