@@ -47,12 +47,12 @@ void UTEC::TwoLinkedList::push_back_2(int value){
     }
 };
 
-std::string UTEC::TwoLinkedList::merge(int merged){
+std::string UTEC::TwoLinkedList::merge(int x){
     if (is_merged()){
         return "Operación duplicada";
     }
     else{
-        head3->value=merged;
+        Node* head3=new Node(x);
         tail=head3;
         tail1->next=head3;
         tail2->next=head3;
@@ -61,11 +61,14 @@ std::string UTEC::TwoLinkedList::merge(int merged){
 };
 bool UTEC::TwoLinkedList::is_merged(){
     bool a;
-    if (tail1->next!=nullptr){
-        a=true;
+    if (tail1==nullptr||tail2==nullptr){
+        return false;
     }
-    else{
-        false;
+    else if (tail1->next!=nullptr){
+            a=true;
+        }
+        else{
+            a=false;
     }
     return (a);
 
@@ -101,12 +104,8 @@ std::string UTEC::TwoLinkedList::getlist(int lista){
             }
         }
         else{
-            strng="-";
+            strng="";
         }
-    }
-    else
-    {
-        std::cout<<"Valor no permitido";
     }
     return strng;
     
@@ -121,7 +120,7 @@ void UTEC::TwoLinkedList::search(int buscado){
         temp=temp->next;
     }
     temp=head2;
-    while(temp!=nullptr&&head3){
+    while(temp!=nullptr||temp!=head3){
         if (temp->value==buscado){
             std::cout<<&temp;
             break;
@@ -137,7 +136,7 @@ void UTEC::TwoLinkedList::save(std::string archivo){
         temp=temp->next;
     }
     temp=head2;
-    while(temp!=nullptr&&head3){
+    while(temp!=nullptr ||temp!=head3){
         out<<temp->value;
     };
 }
