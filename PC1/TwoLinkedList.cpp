@@ -52,7 +52,7 @@ std::string UTEC::TwoLinkedList::merge(int x){
         return "Operación duplicada";
     }
     else{
-        Node* head3=new Node(x);
+        head3=new Node(x);
         tail=head3;
         tail1->next=head3;
         tail2->next=head3;
@@ -84,31 +84,32 @@ std::string UTEC::TwoLinkedList::getlist(int lista){
         temp=temp->next;
         }
     }
-    else if (lista==2)
-    {
-        Node* temp=head2;
-        while (temp!=nullptr){
-        std::string x = std::to_string(temp->value);
-        strng=strng + x +" ";
-        temp=temp->next;
-        }
-    }
-    else if (lista==3)
-    {
-        if(is_merged()){
-        Node* temp=head3;
-        while (temp!=nullptr){
+    else{ 
+        if (lista==2){
+            Node* temp=head2;
+            while (temp!=nullptr){
             std::string x = std::to_string(temp->value);
             strng=strng + x +" ";
             temp=temp->next;
             }
         }
         else{
-            strng="";
+            if (lista==0){
+                if(is_merged()){
+                    Node* temp=head3;
+                    while (temp!=nullptr){
+                        std::string x = std::to_string(temp->value);
+                        strng=strng + x +" ";
+                        temp=temp->next;
+                    }
+                }
+                else{
+                    strng="";
+                }
+            }
         }
-    }
     return strng;
-    
+    }
 };
 void UTEC::TwoLinkedList::search(int buscado){
     Node* temp=head1;
